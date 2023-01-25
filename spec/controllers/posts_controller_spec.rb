@@ -1,4 +1,4 @@
-require 'rails_helper' 
+require 'rails_helper'
 
 RSpec.describe PostsController, type: :request do
   describe 'post controller' do
