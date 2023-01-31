@@ -2,6 +2,6 @@
 
 <% @users.each do |person| %>
 <%= link_to "users/#{person.id}" do%>
-<%= render partial: "shared/user_card", :locals => {person: person} %>
+<%= reder @users %>
 <% end %>
 <% end %>
