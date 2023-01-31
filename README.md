@@ -73,7 +73,21 @@ Clone this repository to your desired folder:
 
 ```sh
   cd my-folder
-  git clone this repo
+  git clone https://github.com/RichardChileya/rails-blog-app/
+```
+
+### usage 
+run: rails server
+
+
+### Run tests
+
+To run tests, run the following command:
+
+Example command:
+
+```sh
+  rspec spec
 ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

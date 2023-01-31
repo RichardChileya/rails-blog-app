@@ -1,1 +1,7 @@
-<h1>User displayed here </h1>
+<h1>Users Index action</h1>
+
+<% @users.each do |person| %>
+<%= link_to "users/#{person.id}" do%>
+<%= reder @users %>
+<% end %>
+<% end %>
