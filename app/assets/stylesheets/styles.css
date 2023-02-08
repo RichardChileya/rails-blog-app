@@ -87,3 +87,24 @@
   padding: 0.3rem;
   margin-bottom: 1rem;
 }
+
+table {
+  border-collapse: collapse;
+  width: 50%;
+  margin: 0 auto;
+  font-family: cursive;
+}
+
+td,
+th {
+  border: 1px solid #ddd;
+  text-align: left;
+  padding: 4px;
+}
+
+td {
+  padding: 0 1.1rem;
+}
+
+tr:nth-child(even) {
+  b
