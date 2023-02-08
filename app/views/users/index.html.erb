@@ -1,7 +1,20 @@
-<h1>Users Index action</h1>
-
-<% @users.each do |person| %>
-<%= link_to user_path(person.id) do%>
-<%= render partial: "shared/user_card", :locals => {person: person} %>
-<% end %>
-<% end %>
+<h1>Users</h1>
+      <table>
+        <tr>
+          <th><h1>ID</h1></th>
+          <th><h1>Users</h1></th>
+          <th><h1>Image</h1></td>
+        </tr>
+        <% @users.each do |user| %>
+        <tr>
+          <td><h2><%= user.id %></h2></td>
+          <td>
+          <%= link_to user_path(user) do %>
+            <h2><%= user.name %><br></h2>
+          <% end %>
+            Number of posts: <%= user.post_counter %>
+          </td>
+          <td><img class="user-img" src= <%= user.photo %> alt="profile photo" /></td>
+        </tr>
+        <% end %>
+      </table>
