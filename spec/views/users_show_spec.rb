@@ -5,13 +5,13 @@ RSpec.describe 'User show page', type: :system do
       name: 'Richard',
       photo: 'https://i.imgur.com/9yG7zZT.jpg',
       bio: 'I love basketball',
-      posts_counter: 1
+      post_counter: 1
     )
     @user1 = User.create(
       name: 'Ashley',
       photo: 'https://i.imgur.com/9yG7zZT.jpg',
       bio: 'I love singing',
-      posts_counter: 1
+      post_counter: 1
     )
     @post1 = Post.create(author: @user, title: 'Intro', text: 'This is my first post')
     @post2 = Post.create(author: @user1, title: 'Promo', text: 'hello ya`ll!')
@@ -30,7 +30,7 @@ RSpec.describe 'User show page', type: :system do
 
   it 'should show the number of posts the user has written' do
     visit user_path(id: @user.id)
-    expect(page).to have_content(@user.posts_counter)
+    expect(page).to have_content(@user.post_counter)
   end
 
   it 'should show the user\'s bio' do
