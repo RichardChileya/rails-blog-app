@@ -6,10 +6,11 @@ RSpec.describe 'Posts index ', type: :feature do
       name: 'Richard',
       photo: 'https://i.imgur.com/9yG7zZT.jpg',
       bio: "I'm working",
-      post_counter: 
+      post_counter:
     )
     visit user_posts_path(@user)
-    @first_post = Post.create(author: @user, title: 'Post one', text: 'this is my first post', comments_counter: 0, likes_counter: 26)
+    @first_post = Post.create(author: @user, title: 'Post one', text: 'this is my first post', comments_counter: 0,
+                              likes_counter: 26)
     @first_comment = Comment.create(post: @first_post, author: @user, text: 'nice idea')
   end
   it 'displays profile picture' do
