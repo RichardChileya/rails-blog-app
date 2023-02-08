@@ -6,7 +6,7 @@ RSpec.describe 'Posts index ', type: :system do
       name: 'Richard',
       photo: 'https://i.imgur.com/9yG7zZT.jpg',
       bio: "I'm working",
-      posts_counter: 1
+      post_counter: 1
     )
     visit user_posts_path(@user)
     @first_post = Post.create(author: @user, title: 'Post one', text: 'this is my first post')
@@ -22,7 +22,7 @@ RSpec.describe 'Posts index ', type: :system do
   end
   it 'displays the number of posts' do
     visit user_posts_path(@user)
-    expect(page).to have_content(@user.posts_counter)
+    expect(page).to have_content(@user.post_counter)
   end
   it 'displays the posts title ' do
     visit user_posts_path(@user)
