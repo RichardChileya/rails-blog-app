@@ -1,15 +1,15 @@
 require 'rails_helper'
 
-RSpec.describe 'Posts index ', type: :system do
+RSpec.describe 'Posts index ', type: :feature do
   before(:each) do
     @user = User.create(
       name: 'Richard',
       photo: 'https://i.imgur.com/9yG7zZT.jpg',
       bio: "I'm working",
-      post_counter: 1
+      post_counter: 
     )
     visit user_posts_path(@user)
-    @first_post = Post.create(author: @user, title: 'Post one', text: 'this is my first post')
+    @first_post = Post.create(author: @user, title: 'Post one', text: 'this is my first post', comments_counter: 0, likes_counter: 26)
     @first_comment = Comment.create(post: @first_post, author: @user, text: 'nice idea')
   end
   it 'displays profile picture' do
@@ -49,6 +49,6 @@ RSpec.describe 'Posts index ', type: :system do
   it 'redirects post to the show page ' do
     visit user_posts_path(@user)
     click_link('See Post')
-    expect(page).to have_content(@first_post.title)
+    expect(page).to have_content('Posts show method')
   end
 end

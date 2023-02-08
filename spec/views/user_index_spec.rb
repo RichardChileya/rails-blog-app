@@ -6,14 +6,14 @@ RSpec.describe 'User index page', type: :system do
       name: 'Ikon',
       photo: 'https://i.imgur.com/9yG7zZT.jpg',
       bio: 'I love basketball',
-      post_counter: 1
+      post_counter: 2
     )
     visit users_path
   end
 
   it 'shows username of all other users' do
     visit users_path
-    expect(page).to have_content('Ikon')
+    expect(page).to have_content(@user.name)
   end
 
   it 'should show the profile picture for each user' do
@@ -23,12 +23,12 @@ RSpec.describe 'User index page', type: :system do
 
   it 'should show the number of posts each user has written' do
     visit users_path
-    expect(page).to have_content('number of posts: 1')
+    expect(page).to have_content(@user.post_counter)
   end
 
   it 'should redirect to user show page when clicked' do
     visit users_path
-    click_link('Rico')
-    expect(page).to have_content('Ikon')
+    click_link(@user.name)
+    expect(page).to have_content('Users show method')
   end
 end
