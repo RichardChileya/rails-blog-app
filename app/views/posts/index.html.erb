@@ -1,24 +1,22 @@
-h1>Posts index method</h1>
-
-<%= render "shared/user_card", person: @user %>
-
-<div class="user_show_container">
-<% @posts.each_with_index do |post, index| %>
-  <div class="post_container">
-  <h4><%= link_to post.class, user_post_path(@user.id, post.id) %> #<%=index+1%></h4>
-  <p><%= post.title %></p>
-  <div class="counters">
-    <span>Comments: <%= post.comments_counter %></span> 
-    <span>Likes: <%= post.likes_counter%> </span>
-  </div>
-  </div>
-
-  <div class="post_comment_limit">
-  <% post.most_recent_comments.each do |comment|%>
-    <p><%= comment.author.name%> : <%= comment.text%></p>
-  <% end %>
-  </div>
-<% end %>
-
-<button><%= link_to 'Create a new post', new_user_post_path(@user.id) %></button>
-</div>
+<img class="img" src= <%= @user.photo %> alt="profile photo" /></td>
+<% @user.posts.each do |post| %>
+      <div class="post_body">
+        <div class="inner_body">
+          <p>Post #<%= post.id %></p>
+          <h2><%= post.title %></h2>
+          <p><%= post.text %>
+        </div>
+        <div class="inner_body2">
+          <p>Comments: <%= post.comments_counter %> Likes: <%= post.likes_counter %></p>
+        </div>
+        <%= form_with url: "/users/#{@user.id}/posts/#{post.id}/likes" do |f| %>
+          <%= f.submit "Like" %>
+        <% end %>
+      </div>
+      <div class="post_body">
+        <% post.comments.each do |comment| %>
+          <b><%= @user.name %></b>: <%= comment.text %>
+        <% end %>
+      </div>
+        <%= link_to "See Post", user_post_path(post.author_id, post.id) %>
+    <% end %>

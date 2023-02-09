@@ -9,7 +9,7 @@ class Post < ApplicationRecord
   validates :likes_counter, numericality: { only_integer: true }, comparison: { greater_than_or_equal_to: 0 }
 
   def post_counter
-    author.update(posts_counter: author.posts.all.length)
+    author.update(post_counter: author.posts.all.length)
   end
 
   def most_recent_comments

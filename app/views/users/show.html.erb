@@ -1,21 +1,25 @@
 <h1>Users show method</h1>
 
- <%= render "shared/user_card", person: @user%>
 <div class="user_show_container">
+<img class="img" src= <%= @user.photo %> alt="profile photo" />
 <div class="user_bio">
   <h3>Bio</h3>
+  <p><%= @user.name %></p>
   <p><%= @user.bio %></p>
 </div>
 
-<% @user.most_recent_post.each_with_index do |post, index| %>
+<% @posts.each do |post| %>
   <div class="post_container">
-<h4><%= link_to post.class, user_post_path(@user.id, post.id) %> #<%=index+1%></h4>
- <p class="title"><%= post.title %></p>
+  <p><%= post.title %> </p>
+  <p><%= post.text %></p>
   <div class="counters">
     <span>Comments: <%= post.comments_counter %></span> 
+    <span>Posts: <%= @user.post_counter %></span> 
     <span>Likes: <%= post.likes_counter%> </span>
   </div>
+  
   </div>
 <% end %>
+
 <button><%= link_to 'See all posts', user_posts_path(@user.id) %></button>
 </div>
