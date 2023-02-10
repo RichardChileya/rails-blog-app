@@ -102,6 +102,19 @@ Example command:
 - Twitter: [@KarayamanEmre](https://twitter.com/RichardChileya)
 - LinkedIn: [Emre Karayaman](https://www.linkedin.com/in/RichardChileya/)
 
+👤 **Newton Alumasa**
+
+- GitHub: [@Newton Alumasa](https://github.com/altontonn)
+- Twitter: [@Newton Alumasa](https://twitter.com/altontonn)
+- LinkedIn: [@Newton Alumasa](https://www.linkedin.com/in/newton-alumasa/)
+
+👤 **Usirusen Ikon**
+
+- GitHub: [@Usirusen Ikon](https://github.com/Usirusen_Ikon)
+- Twitter: [@Usirusen Ikon](https://twitter.com/Usirusen_Ikon)
+- LinkedIn: [@Usirusen Ikon](https://www.linkedin.com/in/Usirusen_Ikon/)
+
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 ## 🔭 Future Features <a name="future-features"></a>
   - Search Icon 
