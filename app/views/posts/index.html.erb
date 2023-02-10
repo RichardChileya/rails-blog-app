@@ -1,22 +1,25 @@
 <img class="img" src= <%= @user.photo %> alt="profile photo" /></td>
 <% @user.posts.each do |post| %>
-      <div class="post_body">
-        <div class="inner_body">
-          <p>Post #<%= post.id %></p>
-          <h2><%= post.title %></h2>
-          <p><%= post.text %>
-        </div>
-        <div class="inner_body2">
-          <p>Comments: <%= post.comments_counter %> Likes: <%= post.likes_counter %></p>
-        </div>
-        <%= form_with url: "/users/#{@user.id}/posts/#{post.id}/likes" do |f| %>
-          <%= f.submit "Like" %>
-        <% end %>
-      </div>
-      <div class="post_body">
-        <% post.comments.each do |comment| %>
-          <b><%= @user.name %></b>: <%= comment.text %>
-        <% end %>
-      </div>
-        <%= link_to "See Post", user_post_path(post.author_id, post.id) %>
+  <div class="post_body">
+    <div class="inner_body">
+      <p>Post #<%= post.id %></p>
+      <h2><%= post.title %></h2>
+      <p><%= post.text %>
+    </div>
+    <div class="inner_body2">
+      <p>Comments: <%= post.comments_counter %> Likes: <%= post.likes_counter %></p>
+    </div>
+    <%= form_with url: "/users/#{@user.id}/posts/#{post.id}/likes" do |f| %>
+      <%= f.submit "Like" %>
     <% end %>
+  </div>
+  <div class="post_body">
+    <% post.comments.each do |comment| %>
+      <b><%= @user.name %></b>: <%= comment.text %>
+      <% if can? :manage, post %>
+        <%= button_to "Delete Comment", user_post_comment_path(@user, post, comment), method: :delete, class:"delete post" %>
+      <% end %>
+    <% end %>
+  </div>
+    <%= link_to "See Post", user_post_path(post.author_id, post.id) %>
+<% end %>
