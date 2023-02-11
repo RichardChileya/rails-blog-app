@@ -1,24 +1,28 @@
 <h1>Posts show method</h1>
 
 <div class="user_show_container">
-   <div class="post_container_info">
+  <% if can? :manage, @post %>
+   <%= button_to "Delete Post", user_post_path(author_id: @user.id, post_id: @post.id), method: :delete, class:"delete post" %>
+  <% end %>
+  
+  <div class="post_container_info">
     <h4><%= @posts.class %> #<%= @user.id %> by <%= @user.name%></h4>
     <span>Comments: <%= @posts.comments_counter%> Likes: <%= @posts.likes_counter%></span>
   </div>
 
-    <div class="post_desc">
-      <%= @posts.text%>
-    </div>
+  <div class="post_desc">
+    <%= @posts.text%>
+  </div>
 
-    <div class="post_comment_limit post_comments">
-      <% @comments.each do |comment| %>
-        <p><%= comment.author.name%> : <%= comment.text%></p>
-      <% end %>
-    </div>
+  <div class="post_comment_limit post_comments">
+    <% @comments.each do |comment| %>
+      <p><%= comment.author.name%> : <%= comment.text%></p>
+    <% end %>
+  </div>
 
-    <div>
-      <button>
-        <%= link_to 'Write a comment', new_user_post_comment_path(@user.id, @posts.id) %>
-      </button>
-    </div> 
+  <div>
+    <button>
+      <%= link_to 'Write a comment', new_user_post_comment_path(@user.id, @posts.id) %>
+    </button>
+  </div> 
 </div>
